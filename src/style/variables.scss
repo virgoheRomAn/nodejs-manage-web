@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+// 项目前缀
+$prefix: vhm;
+
+//默认margin
+$base-margin: 15px;
+
+//默认padding
+$base-padding: 15px;
+
+:root {
+  --next-bg-main-color: #f5f5f5;
+  --next-bg-content-color: #ffffff;
+  --next-bg-color: #f5f5ff;
+  --next-bg-menuBar: #304156;
+  --next-bg-menuBar-ul-li: #1f2d3d;
+  --next-bg-menuBar-ul-li-hover: #001528;
+  --next-bg-menuBar-light-1: #5c646b;
+  --next-bg-menuBarColor: #eaeaea;
+  --next-bg-menuBarActiveColor: rgba(0, 0, 0, 0.2);
+  --next-bg-topBar: #ffffff;
+  --next-bg-topBarColor: #606266;
+  --next-bg-columnsMenuBar: #545c64;
+  --next-bg-columnsMenuBarColor: #e6e6e6;
+  --next-border-color-light: #f1f2f3;
+  --next-border-color: #c0ccda;
+  --next-color-white: #ffffff;
+  --next-color-white-mask: rgba(255, 255, 255, 0.5);
+  --next-color-black: #000000;
+
+  --next-color-danger-text: #F56C6C;
+  --next-color-title-text: rgba(0, 0, 0, 0.85);
+  --next-color-primary-lighter: #ecf5ff;
+  --next-color-success-lighter: #f0f9eb;
+  --next-color-warning-lighter: #fdf6ec;
+  --next-color-danger-lighter: #fef0f0;
+  --next-color-dark-hover: #0000001a;
+  --next-color-menu-hover: rgba(0, 0, 0, 0.2);
+  --next-color-user-hover: rgba(0, 0, 0, 0.04);
+  --next-color-menu-hover-dark: rgba(0, 0, 0, 0.3);
+  --next-color-seting-main: #e9eef3;
+  --next-color-seting-aside: #d3dce6;
+  --next-color-seting-header: #b3c0d1;
+  --el-color-primary-dark-2: #398ee5;
+  --el-color-primary: #409eff;
+  --el-color-primary-light-1: #53a7ff;
+  --el-color-primary-light-2: #66b1ff;
+  --el-color-primary-light-3: #79bbff;
+  --el-color-primary-light-4: #8cc4ff;
+  --el-color-primary-light-5: #9fceff;
+  --el-color-primary-light-6: #b2d8ff;
+  --el-color-primary-light-7: #c5e1ff;
+  --el-color-primary-light-8: #d8ebff;
+  --el-color-primary-light-9: #ebf5ff;
+  --el-menu-bg-color: #545c64;
+
+  --render-card-line: #EBEEF5;
+  --render-card-line-ddd: #d9dbdf;
+
+  --color-text-main: #303133;
+  --color-text-normal: #606266;
+  --color-text-sub: #909399;
+
+  --border-color-0: #dcdfe6;
+  --border-color-1: #DCDFE6;
+  --border-color-2: #E4E7ED;
+  --border-color-3: #EBEEF5;
+  --border-color-4: #F2F6FC;
+
+  --vhm-color-f5f5f6:#f5f5f6;
+  --vhm-color-f5f7fa:#f5f7fa;
+  --vhm-color-error:#cc1b1b;
+  --vhm-color-green:#1fb5ad;
+}

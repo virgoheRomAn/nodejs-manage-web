@@ -1,0 +1,234 @@
+@charset 'utf-8';
+// 模板组件 公用样式
+
+/********************************************************************************************/
+/*---- nprogress 进度条跟随主题颜色 ----*/
+/********************************************************************************************/
+#nprogress {
+  .bar {
+    background: var(--el-color-primary) !important;
+    z-index: 9999999 !important;
+  }
+}
+
+/********************************************************************************************/
+/*---- wangeditor 富文本编辑器 ----*/
+/********************************************************************************************/
+[data-theme='dark'] {
+  --w-e-textarea-bg-color: var(--el-color-white) !important;
+  --w-e-textarea-color: var(--el-text-color-primary) !important;
+  --w-e-toolbar-color: var(--el-text-color-primary) !important;
+  --w-e-toolbar-bg-color: var(--el-color-white) !important;
+  --w-e-toolbar-active-color: var(--el-text-color-primary) !important;
+  --w-e-toolbar-active-bg-color: var(--next-color-menu-hover) !important;
+  --w-e-toolbar-border-color: var(--el-border-color-light, #ebeef5) !important;
+  --w-e-modal-button-bg-color: var(--el-color-primary) !important;
+  --w-e-modal-button-border-color: var(--el-color-primary) !important;
+}
+
+.editor-container {
+  z-index: 10;
+
+  .w-e-toolbar {
+    border: 1px solid var(--el-border-color-light, #ebeef5) !important;
+    border-bottom: 1px solid var(--el-border-color-light, #ebeef5) !important;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    z-index: 2 !important;
+  }
+
+  .w-e-text-container {
+    border: 1px solid var(--el-border-color-light, #ebeef5) !important;
+    border-top: none !important;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    z-index: 1 !important;
+  }
+}
+
+/********************************************************************************************/
+/*---- 表格 ----*/
+/********************************************************************************************/
+.table-tool-popper {
+  padding: 0 !important;
+
+  .tool-box {
+    display: flex;
+    border-bottom: 1px solid var(--el-border-color-lighter);
+    box-sizing: border-box;
+    color: var(--el-text-color-primary);
+    height: 40px;
+    align-items: center;
+  }
+
+  .tool-sortable {
+    max-height: 303px;
+
+    .tool-sortable-item {
+      display: flex;
+      box-sizing: border-box;
+      color: var(--el-text-color-primary);
+      align-items: center;
+      padding: 0 12px;
+
+      &:hover {
+        background: var(--el-fill-color-lighter);
+      }
+
+      i {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+/********************************************************************************************/
+/*---- Popover 弹出框(图标选择器) ----*/
+/********************************************************************************************/
+.icon-selector-popper {
+  padding: 0 !important;
+
+  .icon-selector-warp {
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+
+    .icon-selector-warp-title {
+      position: absolute;
+      height: 40px;
+      line-height: 40px;
+      left: 15px;
+    }
+
+    .el-tabs__header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 15px;
+      border-bottom: 1px solid var(--el-border-color-light);
+      margin: 0 !important;
+
+      .el-tabs__nav-wrap {
+        &::after {
+          height: 0 !important;
+        }
+
+        .el-tabs__item {
+          padding: 0 5px !important;
+        }
+      }
+    }
+  }
+}
+
+/********************************************************************************************/
+/*---- waves ----*/
+/********************************************************************************************/
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  transition: all 0.3s ease-out;
+
+  .waves-ripple {
+    position: absolute;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.7s ease-out;
+    transition-property: opacity, -webkit-transform;
+    transition-property: transform, opacity;
+    transition-property: transform, opacity, -webkit-transform;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    pointer-events: none;
+  }
+
+  &.waves-light .waves-ripple {
+    background-color: rgba(255, 255, 255, 0.45);
+  }
+
+  &.waves-red .waves-ripple {
+    background-color: rgba(244, 67, 54, 0.7);
+  }
+
+  &.waves-yellow .waves-ripple {
+    background-color: rgba(255, 235, 59, 0.7);
+  }
+
+  &.waves-orange .waves-ripple {
+    background-color: rgba(255, 152, 0, 0.7);
+  }
+
+  &.waves-purple .waves-ripple {
+    background-color: rgba(156, 39, 176, 0.7);
+  }
+
+  &.waves-green .waves-ripple {
+    background-color: rgba(76, 175, 80, 0.7);
+  }
+
+  &.waves-teal .waves-ripple {
+    background-color: rgba(0, 150, 136, 0.7);
+  }
+
+  input[type='button'],
+  input[type='reset'],
+  input[type='submit'] {
+    border: 0;
+    font-style: normal;
+    font-size: inherit;
+    text-transform: inherit;
+    background: none;
+  }
+}
+
+.waves-notransition {
+  transition: none !important;
+}
+
+.waves-circle {
+  transform: translateZ(0);
+  mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);
+}
+
+.waves-input-wrapper {
+  border-radius: 0.2em;
+  vertical-align: bottom;
+}
+
+.waves-input-wrapper .waves-button-input {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.waves-circle {
+  text-align: center;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-radius: 50%;
+  mask-image: none;
+}
+
+.waves-block {
+  display: block;
+}
+
+a.waves-effect .waves-ripple {
+  z-index: -1;
+}

@@ -1,0 +1,547 @@
+.jBox-container {
+  position: relative;
+  z-index: 9999;
+}
+
+.jBox-container.jBox-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.jBox-container.jBox-fullscreen.jBox-message.jBox-black .jBox-layout {
+  background: transparent;
+  color: #fff;
+}
+
+.jBox-container.jBox-fullscreen .jBox-layout .__content__ .__content_box__ .__cutdown__ {
+  font-size: 150px;
+}
+
+.jBox-container.jBox-transparent {
+  background: transparent;
+}
+
+.jBox-container.jBox-black {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.jBox-container.jBox-black.jBox-message .jBox-layout {
+  background: #fff;
+  color: #333;
+}
+
+.jBox-container.jBox-white {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.jBox-layout {
+  position: fixed;
+  z-index: 100;
+}
+
+.jBox-layout .__content__ {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.jBox-layout .__content__ label,
+.jBox-layout .__content__ img {
+  display: block;
+}
+
+.jBox-layout .__content__ .__content_box__ {
+  display: flex;
+  height: 100%;
+  color: #666;
+}
+
+.jBox-layout .__content__ .__content_box__ .__content_text__ {
+  font-size: 14px;
+}
+
+.jBox-layout .__content__ .__content_box__ .__content_text__.__none__ {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+}
+
+.jBox-layout .__content__ .__content_box__ .__cutdown__ {
+  font-size: 40px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #f3c176;
+  padding: 0 20px;
+}
+
+.jBox-layout .__content__ .__content_box__.__center__ {
+  align-items: center;
+  justify-content: center;
+}
+
+.jBox-layout .__content__ .__content_box__.__center__ .__content_text__ {
+  text-align: center;
+}
+
+.jBox-layout .__content__ .__content_box__.__ver__ {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jBox-layout .__content__ .__content_box__.__ver__ .__content_text__ {
+  margin-top: 8px;
+}
+
+.jBox-layout .__content__ .__content_box__.__ver__ .__icon__ img {
+  width: 32px;
+  height: 32px;
+}
+
+.jBox-layout .__content__ .__content_box__.__hor__ {
+  flex-direction: row;
+  align-items: center;
+}
+
+.jBox-layout .__content__ .__content_box__.__hor__ .__content_text__ {
+  text-align: left;
+  margin-left: 8px;
+}
+
+.jBox-layout .__content__ .__content_box__.__hor__ .__icon__ img {
+  width: 24px;
+  height: 24px;
+}
+
+.jBox-layout .__button__ .__button_row__1 a {
+  width: 100%;
+}
+
+.jBox-layout .__button__ .__button_row__2 a {
+  text-decoration: none;
+  width: 50%;
+}
+
+.jBox-layout .__button__ .__button_row__3 a {
+  width: 33.33%;
+}
+
+.jBox-layout .__button__ .__button_row__4 a {
+  width: 25%;
+}
+
+.jBox-message .jBox-layout {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.jBox-message .jBox-layout .__content__ {
+  padding: 15px 20px;
+}
+
+.jBox-message .jBox-layout .__content__ .__content_box__ {
+  color: #fff;
+}
+
+.jBox-confirm.jBox-shadow .jBox-layout {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.jBox-confirm .jBox-layout {
+  background: #fff;
+  border-radius: 5px;
+  color: #333;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.jBox-confirm .jBox-layout .__colse__ {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  width: 40px;
+  height: 40px;
+}
+
+.jBox-confirm .jBox-layout .__colse__ button,
+.jBox-confirm .jBox-layout .__colse__ a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 0 none;
+  color: #999;
+  font-size: 24px;
+  font-family: "宋体", arial, helvetica, sans-serif;
+}
+
+.jBox-confirm .jBox-layout .__title__ {
+  display: block;
+  margin-top: 10px;
+  padding: 0 20px;
+  font-size: 16px;
+  height: 34px;
+  line-height: 34px;
+}
+
+.jBox-confirm .jBox-layout .__title__.__min__ {
+  margin-top: 0;
+  height: 20px;
+}
+
+.jBox-confirm .jBox-layout .__title__.__min__~.__content__ {
+  padding-top: 0;
+}
+
+.jBox-confirm .jBox-layout .__title__.__center__ {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.jBox-confirm .jBox-layout .__title__.__move__ {
+  margin-top: 0;
+  padding-top: 20px;
+  cursor: move;
+  height: auto;
+}
+
+.jBox-confirm .jBox-layout .__content__ {
+  padding: 15px 20px 40px;
+}
+
+.jBox-confirm .jBox-layout .__content__.__none_title__ .__content_box__ .__content_text__ {
+  font-size: 16px;
+}
+
+.jBox-confirm .jBox-layout .__content__.__prompt__ .__content_text__ {
+  margin-bottom: 8px;
+}
+
+.jBox-confirm .jBox-layout .__content__.__prompt__ .__prompt_label__ {
+  display: block;
+  width: 100%;
+}
+
+.jBox-confirm .jBox-layout .__content__.__prompt__ .__prompt_label__ input {
+  border: 1px solid #DFE4EA;
+  border-radius: 3px;
+  display: flex;
+  height: 38px;
+  width: 100%;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.jBox-confirm .jBox-layout .__content__.__prompt__ .__prompt_label__ input.err {
+  border: 1px solid #f56c6c;
+}
+
+.jBox-confirm .jBox-layout .__content__.__prompt__ .__prompt_label__ span {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #f56c6c;
+}
+
+.jBox-confirm .jBox-layout .__button__ {
+  display: block;
+}
+
+.jBox-confirm .jBox-layout .__button__.__hor__ {
+  height: 46px;
+}
+
+.jBox-confirm .jBox-layout .__button__.__hor__ [class*="__button_row__"] {
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+.jBox-confirm .jBox-layout .__button__.__hor__ [class*="__button_row__"] a {
+  height: 100%;
+}
+
+.jBox-confirm .jBox-layout .__button__ [class*="__button_row__"] {
+  display: flex;
+}
+
+.jBox-confirm .jBox-layout .__button__ [class*="__button_row__"] a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.jBox-confirm .jBox-layout .__button__ [class*="__button_row__"] a.cancel {
+  color: #666;
+}
+
+.jBox-confirm .jBox-layout .__button__ [class*="__button_row__"] a.confirm {
+  color: #25497D;
+}
+
+.jBox-confirm.__andriod__ .jBox-layout .__title__ {
+  margin-top: 15px;
+}
+
+.jBox-confirm.__andriod__ .jBox-layout .__content__ {
+  padding-bottom: 30px;
+}
+
+.jBox-confirm.__andriod__ .jBox-layout .__button__ {
+  border-top: 0 none;
+  margin-bottom: 10px;
+}
+
+.jBox-confirm.__andriod__ .jBox-layout .__button__ [class*="__button_row__"] {
+  justify-content: flex-end;
+  padding: 0 18px;
+}
+
+.jBox-confirm.__andriod__ .jBox-layout .__button__ [class*="__button_row__"] a {
+  border-right: 0 none;
+  border-bottom: 0 none;
+  min-width: 60px;
+  width: auto;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__content__.__prompt__ .__content_box__.__left__ {
+  padding: 0;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__content__ .__content_box__.__left__ {
+  padding: 0 15px;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__content__ .__content_box__.__left__ .__content_text__ {
+  text-align: left;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__button__ {
+  border-top: 1px solid #DFE4EA;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__button__.__hor__ [class*="__button_row__"] {
+  justify-content: space-between;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__button__.__hor__ [class*="__button_row__"] a {
+  border-right: 1px solid #DFE4EA;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__button__.__hor__ [class*="__button_row__"] a:last-child {
+  border-right: 0 none;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__button__.__ver__ [class*="__button_row__"] {
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__button__.__ver__ [class*="__button_row__"] a {
+  height: 44px;
+  width: 100%;
+  border-bottom: 1px solid #DFE4EA;
+}
+
+.jBox-confirm.__ios__ .jBox-layout .__button__.__ver__ [class*="__button_row__"] a:last-child {
+  border-bottom: 0 none;
+}
+
+.animate {
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+
+@-webkit-keyframes jBox-scale {
+  0% {
+    -webkit-transform: scale(1.1);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes jBox-scale {
+  0% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.jBox-scale {
+  -webkit-animation-name: jBox-scale;
+  animation-name: jBox-scale;
+}
+
+@-webkit-keyframes jBox-fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes jBox-fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.jBox-fadeIn {
+  -webkit-animation-name: jBox-fadeIn;
+  animation-name: jBox-fadeIn;
+}
+
+@-webkit-keyframes jBox-shake {
+
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+}
+
+@keyframes jBox-shake {
+
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-5px);
+    -ms-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(5);
+    -ms-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+}

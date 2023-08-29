@@ -1,0 +1,805 @@
+:root {
+  --item-width-normal: 200px;
+  --item-width-long: 230px;
+  --item-width-max: 250px;
+  --item-width-big: 300px;
+  --item-width-large: 450px;
+}
+
+// 基础设置 - 单个项的宽度
+.form-item-width {
+  width: var(--item-width-normal);
+  max-width: initial;
+}
+
+// 基础设置 - 单个项的最大宽度
+.form-item-max-width {
+  width: auto;
+  max-width: var(--item-width-max);
+}
+
+// 基础设置 - 单个项的最小宽度
+.form-item-min-width {
+  width: auto;
+  min-width: var(--item-width-normal);
+}
+
+// 基础设置 - 适应
+.form-item-auto-width {
+  width: auto !important;
+  min-width: inherit !important;
+  max-width: inherit !important;
+}
+
+// 只读和不可编辑
+.readony-disable {
+
+  [readonly] {
+    color: var(--color-text-normal);
+
+    &+span {
+      display: none;
+    }
+  }
+
+  [disabled] {
+    color: var(--color-text-normal);
+  }
+}
+
+/***********************************************************************************/
+/** 表单模块 **/
+/***********************************************************************************/
+.form-box {
+  position: relative;
+
+  // 渲染项不需要向右侧间距
+  &.is-no-margin-right {
+    .form-item-box {
+      margin-right: 0;
+    }
+  }
+
+  // 整个表单 全等高
+  &--full {
+    height: 100%;
+
+    .form-render-box {
+      height: 100%;
+
+      .form-card-box {
+        height: 100%;
+      }
+    }
+  }
+
+  // 整个表单 全部单独一行
+  &--block {
+    .form-render-box {
+      width: 100%;
+
+      .form-card-box {
+        width: 100%;
+
+        .form-card-box--item {
+          display: flex;
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  // 布局较长
+  &--long {
+    .form-item-box {
+      .form-item {
+        width: var(--item-width-long) !important;
+
+        &.auto-width {
+          @extend .form-item-auto-width;
+        }
+      }
+
+      label.form-item,
+      .cascader {
+        width: auto !important;
+        min-width: var(--item-width-long) !important;
+      }
+    }
+  }
+
+  // 布局较大
+  &--big {
+    .form-item-box {
+      .form-item {
+        width: var(--item-width-big) !important;
+
+        &.auto-width {
+          @extend .form-item-auto-width;
+        }
+      }
+
+      label.form-item,
+      .cascader {
+        width: auto !important;
+        min-width: var(--item-width-big) !important;
+      }
+    }
+  }
+
+  // 大布局
+  &--large {
+    .form-item-box {
+      .form-item {
+        width: var(--item-width-large) !important;
+
+        &.auto-width {
+          @extend .form-item-auto-width;
+        }
+      }
+
+      label.form-item,
+      .cascader {
+        width: auto !important;
+        min-width: var(--item-width-large) !important;
+      }
+    }
+  }
+
+
+  // 编辑模块 - 验证模块
+  &.form-box-validate {
+    .form-item-box {
+      margin-bottom: 17px;
+
+      .form-render-item .form-item {
+        width: var(--item-width-normal) !important;
+
+        &.auto-width {
+          @extend .form-item-auto-width;
+        }
+
+        &.daterange {
+          width: var(--item-width-max) !important;
+        }
+      }
+    }
+
+    &.form-box--long .form-item-box {
+      margin-bottom: 17px;
+
+      .form-item {
+        width: var(--item-width-long) !important;
+      }
+    }
+
+    &.form-box--big .form-item-box {
+      margin-bottom: 17px;
+
+      .form-item {
+        width: var(--item-width-big) !important;
+
+        &.daterange {
+          width: var(--item-width-big) !important;
+        }
+      }
+    }
+
+    &.form-box--large .form-item-box {
+      margin-bottom: 20px;
+
+      .form-item,
+      .form-textarea {
+        width: var(--item-width-large) !important;
+
+        &.daterange {
+          width: var(--item-width-large) !important;
+        }
+      }
+    }
+  }
+
+  // 只读模块
+  &.form-box-view {
+    .form-item-box {
+      margin-bottom: 10px;
+
+      >[class$="__label"],
+      >label {
+        color: var(--color-text-sub);
+        font-weight: 400;
+        padding-right: 3px;
+      }
+
+      .form-render-item {
+        .form-item {
+          display: inline-flex;
+          flex-direction: row;
+          align-items: center;
+          @extend .form-item-min-width;
+
+          // 只读模式下的级联
+          &.cascader.d-inline-block {
+            min-width: 170px !important;
+            margin-right: 3px;
+          }
+
+          >span {
+            font-size: 14px;
+            color: var(--color-text-normal);
+
+            &.disabled {
+              color: var(--color-text-sub);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/***********************************************************************************/
+/** 渲染模块 **/
+/***********************************************************************************/
+// 基础渲染模块
+.form-render-box {
+  position: relative;
+
+  // 只读渲染
+  &.form-render-view {
+    .form-item-box {
+      .form-render-item {
+        .form-item {
+          width: auto !important;
+          min-width: var(--item-width-normal) !important;
+        }
+      }
+    }
+  }
+
+  // 表单验证的每一项
+  .form-item-box {
+    margin-bottom: 15px;
+    margin-right: 25px;
+
+    // 字段文本
+    >[class$="__label"],
+    >label {
+      padding-right: 3px;
+    }
+
+    // 渲染的每个项
+    .form-render-item {
+      position: relative;
+      width: 100%;
+
+      // 表单项 相邻的提示
+      &--neighbor {
+        display: inline-flex;
+        align-items: center;
+        vertical-align: middle;
+        margin-left: 10px;
+
+        &.disabled {
+
+          >i,
+          >span {
+            cursor: not-allowed;
+            opacity: .5;
+          }
+        }
+
+        >i {
+          font-size: 20px !important;
+          cursor: pointer;
+        }
+
+        >span {
+          color: var(--el-color-primary);
+          cursor: pointer;
+        }
+      }
+
+      // 文本域
+      .form-textarea {
+        width: 500px !important;
+      }
+
+      // 表单的根项
+      .form-item {
+        @extend .form-item-width;
+
+        &.long {
+          width: var(--item-width-max) !important;
+        }
+
+        &.big {
+          width: var(--item-width-big) !important;
+        }
+
+        &.auto-width {
+          @extend .form-item-auto-width;
+        }
+
+        [class$="__suffix"] {
+          --el-input-inner-height: calc(var(--el-input-height, 32px) - 2px);
+          height: var(--el-input-inner-height);
+        }
+
+        .suffix {
+          margin-right: 0;
+          font-size: 12px;
+          color: var(--color-text-normal);
+        }
+      }
+
+      // 只读
+      label.form-item {
+        display: inline-block;
+      }
+
+      // 只读项
+      &.is-readonly {
+        .form-item {
+          &[class~="el-input"] {
+            position: relative;
+
+            >div.el-input__wrapper {
+              padding: 1px 0;
+            }
+
+            >div[class$="__wrapper"],
+            >div.el-input__wrapper {
+              border: 0 none;
+              box-shadow: none;
+
+              &.is-focus,
+              &:focus {
+                box-shadow: none;
+              }
+
+              @extend .readony-disable;
+            }
+          }
+        }
+      }
+
+      // 不可编辑项
+      &.is-disabled {
+        .form-item {
+          &[class~="el-input"] {
+            position: relative;
+
+            >div[class$="__wrapper"] {
+              border: 0 none;
+
+              @extend .readony-disable;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/***********************************************************************************/
+/** 卡片模块 **/
+/***********************************************************************************/
+// 卡片渲染
+.form-card-box {
+  position: relative;
+
+  // 如果固定滚动 和 整个卡片全屏
+  &.is-fixed-overflow,
+  &.is-full-height-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    >[class$="__body"] {
+      flex: 1;
+      height: 0;
+      padding-right: 0;
+
+      // 内部展示内容区域
+      >.form-card-box--content {
+        height: 100%;
+
+        .list-content-box {
+          height: 100%;
+        }
+      }
+    }
+
+    // 如果是在表格内部滚动
+    &.is-fixed-table-overflow {
+      >[class$="__body"] {
+        padding-right: var(--el-card-padding);
+      }
+    }
+  }
+
+  // 整个卡片全屏
+  &.is-full-height-box {
+    >[class$="__body"] {
+      padding-right: var(--el-card-padding);
+    }
+  }
+
+  // 卡片内滚动
+  &.is-card-oveflow {
+    >[class$="__body"] {
+      overflow-x: hidden;
+      overflow-y: auto !important;
+      transform: translate3d(0, 0, 0);
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  // 卡片在渲染内容的卡片内部
+  &.is-content-inner {
+    border: 0 none;
+    box-shadow: none !important;
+
+    [class$="__body"] {
+      padding: 0;
+    }
+  }
+
+  &.is-column {
+    [class$="__body"] {
+      flex-direction: column;
+
+      .form-card-box--content {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &.is-no-padding {
+    [class$="__body"] {
+      padding: 0;
+    }
+  }
+
+  &.is-no-border {
+    border: 0 none;
+  }
+
+  &.is-padding-bottom-5 {
+    [class$="__body"] {
+      padding-bottom: 5px;
+    }
+  }
+
+  &.is-no-padding-bottom {
+    [class$="__body"] {
+      padding-bottom: 0px;
+    }
+  }
+
+  // 嵌套卡片的子卡片
+  &.is-children {
+    .form-card-box--header {
+      .tips {
+        i {
+          margin-right: 5px;
+        }
+
+        >label {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  // 头部
+  &--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    >.title {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      height: 30px;
+
+      >i {
+        position: relative;
+        top: 1px;
+        margin-right: 5px;
+        font-size: 19px !important;
+        color: var(--el-color-primary);
+
+        &.tooltip {
+          color: var(--next-color-black);
+          opacity: 0.8;
+        }
+      }
+
+      >label {
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      >span {
+        color: var(--vhm-color-error);
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+
+    >.tips {
+      flex: 1;
+
+      >i {
+        color: var(--el-color-primary);
+        margin-right: 5px;
+        font-size: 16px;
+
+        &+label {
+          font-weight: 400;
+          font-size: 16px;
+        }
+      }
+
+      >label {
+        font-weight: 700;
+      }
+
+      >span {
+        color: var(--vhm-color-error);
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+
+    >label>span {
+      color: var(--vhm-color-error);
+      font-size: 12px;
+      margin-left: 10px;
+    }
+
+    // 固定的按钮
+    .fixed-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border: 1px solid var(--render-card-line-ddd);
+      border-radius: 5px;
+      margin-left: 15px;
+
+      .tool {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 30px;
+        cursor: pointer;
+        border-right: 1px solid var(--render-card-line-ddd);
+
+        &.lock {
+          background-color: var(--el-color-primary);
+
+          i {
+            color: var(--el-color-white) !important;
+            font-weight: bold;
+            opacity: 1;
+          }
+        }
+
+        &:hover {
+          i {
+            color: var(--el-color-primary);
+            opacity: 1;
+          }
+        }
+
+        &:last-child {
+          border-right: 0 none;
+        }
+
+        i {
+          color: var(--next-color-black);
+          opacity: 0.8;
+        }
+      }
+    }
+
+    // 传入的按钮
+    .handle-buttons {
+      margin-left: 15px;
+    }
+  }
+
+  // 内容
+  &--content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    // 整个卡片的渲染宽度
+    &.card-item-width-big {
+      .form-card-box--item .form-render-item {
+
+        label.form-item,
+        .cascader {
+          min-width: var(--item-width-big) !important;
+        }
+      }
+    }
+  }
+
+  // 渲染的项
+  &--item {
+    position: relative;
+
+    // label 的宽度 auto
+    &.label-auto {
+      .form-item-box {
+
+        >label,
+        [class$="__label"] {
+          text-align: left;
+          justify-content: flex-start;
+          width: auto !important;
+        }
+      }
+    }
+
+    // 树
+    &.tree {
+      .form-item-box {
+        .form-item {
+          padding-top: 5px;
+          min-width: 200px;
+
+          .el-tree__empty-block {
+            min-height: auto;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    // 转换成 block 占单独一行 文案居左侧
+    &.block,
+    &.upload,
+    &.full-height {
+      display: block;
+      width: 100%;
+
+      .form-item-box {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+
+        >label,
+        [class$="__label"] {
+          text-align: left;
+          justify-content: flex-start;
+          width: auto !important;
+        }
+
+        >[class$="__content"] {
+          margin-left: 0 !important;
+
+          .form-textarea {
+            width: 100% !important;
+          }
+        }
+      }
+    }
+
+    // 高度全等
+    &.full-height {
+      height: 100%;
+
+      .form-item-box {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        >[class$="__content"] {
+          height: 100%;
+
+          .form-render-item {
+            height: 100%;
+
+            .form-textarea {
+              height: 100%;
+
+              >textarea {
+                height: 100% !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 上传
+    &.upload {
+      // margin-bottom: 20px;
+    }
+
+    // 还是弹性布局 占单独一行
+    &.column {
+      width: 100%;
+
+      .form-item-box {
+        display: flex;
+        margin-right: 0;
+      }
+    }
+
+    // 还是弹性布局 占单独一行 一行占满
+    &.full {
+      width: 100%;
+
+      .form-item-box {
+        display: flex;
+        margin-right: 0;
+
+        .form-render-item {
+          width: 100%;
+
+          .form-item {
+            width: 100% !important;
+          }
+        }
+      }
+    }
+
+    // 文字占位在上
+    &.top {
+
+      .form-item-box {
+        flex-direction: column;
+
+        >label,
+        [class$="__label"] {
+          text-align: left;
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    // 只读
+    &.only {
+      .form-item-box {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // 渲染对象数据中 有列表数据 使用嵌套卡片模式渲染
+  &--card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    border-bottom: 1px solid var(--render-card-line);
+    margin-bottom: 15px;
+
+    &.is-hidden-line {
+      margin-bottom: 0;
+      border-bottom: 0 none;
+    }
+
+    &.is-width-big {
+      .form-card-box--item .form-render-item .form-item {
+        width: var(--item-width-big) !important;
+      }
+    }
+  }
+
+  // 渲染列表数据 使用嵌套卡片模式渲染
+  &--list {
+    position: relative;
+    width: 100%;
+  }
+}

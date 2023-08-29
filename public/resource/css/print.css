@@ -1,0 +1,67 @@
+.print-wrap {
+  width: 80%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.print-wrap>.print-wrap-header {
+  width: 100%;
+  margin: 30px auto 15px;
+
+}
+
+.print-wrap>.print-wrap-header>h2 {
+  text-align: center;
+}
+
+.debt-table {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #EBEEF5
+}
+
+.debt-table td,
+.debt-table th {
+  border-right: 1px solid #EBEEF5;
+  border-bottom: 1px solid #EBEEF5;
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px 3px;
+  font-size: 10px;
+  line-height: 20px;
+}
+
+.debt-table td:last-child,
+.debt-table th:last-child {
+  border-right: 0 none;
+}
+
+.debt-table td.table-end,
+.debt-table th.table-end {
+  border-bottom: 0 none;
+}
+
+.debt-table td.table-end .stamp,
+.debt-table th.table-end .stamp {
+  text-align: left;
+}
+
+.debt-table td.table-end .date,
+.debt-table th.table-end .date {
+  text-align: right;
+  padding-top: 20px;
+}
+
+.debt-table td.table-end .date span,
+.debt-table th.table-end .date span {
+  margin-left: 20px;
+}
+
+.print-wrap .debt-tips {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.print-wrap .debt-tips .list-ender {
+  font-size: 12px;
+}

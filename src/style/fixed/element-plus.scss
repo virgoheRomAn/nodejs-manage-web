@@ -1,0 +1,717 @@
+@import '../mixins/index.scss';
+
+/***********************************************************************************/
+/** element-plus 样式修补 **/
+/***********************************************************************************/
+.element-fixed {
+  position: relative;
+
+  // 菜单搜索
+  .el-autocomplete-suggestion__wrap {
+    max-height: 220px !important;
+  }
+
+  // 置顶
+  .el-backtop {
+    z-index: 50;
+  }
+
+  // Steps 步骤条
+  .el-step {
+    .el-step__icon-inner {
+      font-size: 30px !important;
+      font-weight: 400 !important;
+    }
+
+    .el-step__title {
+      font-size: 14px;
+    }
+  }
+
+  // 下拉
+  .el-dropdown {
+    cursor: pointer;
+
+    /*修复 Dropdown 下拉菜单样式问题 2022.03.04*/
+    .el-dropdown-menu {
+      list-style: none !important;
+    }
+
+    .el-dropdown-menu .el-dropdown-menu__item {
+      white-space: nowrap;
+
+      &:not(.is-disabled):hover {
+        background-color: var(--el-dropdown-menuItem-hover-fill);
+        color: var(--el-dropdown-menuItem-hover-color);
+      }
+    }
+  }
+
+  // 分界线
+  .el-divider {
+    background-color: rgb(230, 230, 230);
+  }
+
+  // 按钮
+  .el-button {
+
+    // 第三方字体图标大小
+    &:not(.is-circle) i.el-icon,
+    & i.iconfont,
+    & i.fa,
+    &--default i.iconfont,
+    &--default i.fa {
+      font-size: 14px !important;
+      margin-right: 5px;
+    }
+
+    &--small i.iconfont,
+    &--small i.fa {
+      font-size: 12px !important;
+      margin-right: 5px;
+    }
+
+    &.is-text {
+
+      &:hover,
+      &:focus {
+        background-color: transparent !important;
+      }
+
+      >i.el-icon {
+        margin-right: 0;
+      }
+    }
+  }
+
+  // 左侧菜单
+  .el-aside {
+    // .el-menu-item.is-active {
+    //   background: var(--next-bg-menuBar-ul-li-hover) !important;
+    // }
+
+    // .el-menu-item:hover {
+    //   background: var(--next-bg-menuBarActiveColor) !important;
+    // }
+
+    // .el-sub-menu .el-menu {
+    //   background: var(--next-bg-menuBar-ul-li) !important;
+    // }
+  }
+
+  // 分页
+  .el-pagination {
+    .el-pagination__editor {
+      margin-right: 8px;
+    }
+
+    /*深色模式时分页高亮问题*/
+    .el-pagination.is-background .btn-next.is-active,
+    .el-pagination.is-background .btn-prev.is-active,
+    .el-pagination.is-background .el-pager li.is-active {
+      background-color: var(--el-color-primary) !important;
+      color: var(--el-color-white) !important;
+    }
+  }
+
+  // 卡片
+  .el-card {
+    --el-card-padding: 15px;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // 抽屉
+  .el-drawer {
+    --el-drawer-padding-primary: unset !important;
+
+    .el-drawer__header {
+      padding: 0 15px !important;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0 !important;
+      border-bottom: 1px solid var(--el-border-color);
+      color: var(--el-text-color-primary);
+    }
+
+    .el-drawer__body {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+  }
+
+  // 表格
+  .el-table {
+
+    // 设置表头颜色
+    th.el-table__cell {
+      background-color: var(--vhm-color-f5f7fa);
+    }
+
+    &.no-hover {
+      tbody tr:not(.disabled-row):hover>td {
+        background-color: transparent
+      }
+
+      tbody tr.disabled-row:hover>td {
+        background-color: transparent;
+
+        &.el-table_1_column_1 {
+          background-color: transparent;
+        }
+      }
+    }
+
+    // 合并单元格的表格样式
+    &.merge-table {
+      .el-table__row td .cell {
+        width: auto !important;
+      }
+    }
+
+    // 空值
+    .el-table__empty-block {
+      height: 60px !important;
+    }
+
+    .el-select,
+    .el-input {
+      width: 100%;
+    }
+
+    // table 按钮列 
+    .el-table-button-item {
+      &.column {
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .el-button {
+          display: block;
+
+          &.el-button--text {
+            padding: 0;
+          }
+
+          &+.el-button {
+            margin-top: 10px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    // Table 表格 element plus 2.2.0 版本
+    .el-button.is-text {
+      padding: 0;
+    }
+
+    // 树形结构
+    .el-table__placeholder {
+      display: none;
+    }
+
+    // .el-table__indent {
+    //   padding-left: 38px !important;
+    // }
+  }
+
+  // 上传
+  .el-upload {
+    &+.el-button {
+      margin-left: 10px;
+    }
+
+    &--picture-card {
+      background-color: var(--next-color-white);
+      border-color: var(--next-border-color);
+    }
+  }
+
+  // form 表单
+  .el-form {
+    position: relative;
+
+    // 表单项
+    .el-form-item {
+      position: relative;
+
+      // 必填 [手动]
+      &.required {
+        .el-form-item__label {
+          &::before {
+            content: "*";
+            color: var(--next-color-danger-text);
+            font-size: 14px;
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+
+    // 级联选择
+    .el-cascader {
+
+      /*修复Cascader 级联选择器高度问题*/
+      .el-cascader-menu__wrap.el-scrollbar__wrap {
+        height: 204px !important;
+      }
+
+      //[禁用]
+      &.disabled {
+        .el-input {
+          &.is-disabled {
+            cursor: auto;
+
+            .el-input__wrapper {
+              background: transparent;
+              box-shadow: none;
+              padding: 0;
+            }
+
+            .el-input__suffix {
+              display: none;
+            }
+
+            .el-input__inner {
+              cursor: auto;
+              color: var(--el-text-color-primary);
+              -webkit-text-fill-color: var(--el-text-color-primary);
+            }
+          }
+        }
+      }
+    }
+
+    // 行内模块 [列表项是左右]
+    &.el-form--inline {
+      .el-form-item {
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-right: 30px;
+
+        &__content {
+          flex: 1;
+        }
+
+        &__label {
+          padding-right: 5px;
+          font-weight: 400;
+
+          .el-icon {
+            margin-right: 0px;
+          }
+        }
+      }
+
+      // 文本域
+      .el-textarea {
+        width: 100%;
+        height: 100px;
+        min-width: 300px;
+
+        >textarea {
+          position: relative;
+          top: 2px;
+          height: 100%;
+          padding: 5px 12px;
+          font-size: 14px;
+          line-height: 24px;
+          resize: none;
+
+          &:read-only {
+            background-color: var(--next-bg-main-color);
+          }
+        }
+      }
+    }
+  }
+
+  // NavMenu 导航菜单
+  .el-menu {
+    border-right: none !important;
+    width: 220px;
+
+    // 横向菜单（经典、横向）布局
+    &.el-menu--horizontal {
+      border-bottom: none !important;
+      width: 100% !important;
+
+      .el-menu-item,
+      .el-sub-menu__title {
+        height: 50px !important;
+        color: var(--next-bg-topBarColor);
+      }
+
+      .el-menu-item:not(.is-active):hover,
+      .el-sub-menu:not(.is-active):hover .el-sub-menu__title {
+        color: var(--next-bg-topBarColor);
+      }
+    }
+
+    .el-menu-item {
+      height: 56px !important;
+      line-height: 56px !important;
+    }
+
+    .el-menu-item,
+    .el-sub-menu__title {
+      color: var(--next-bg-menuBarColor);
+    }
+
+    // 外部链接时
+    .el-menu-item a,
+    .el-menu-item a:hover,
+    .el-menu-item i,
+    .el-sub-menu__title i {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    // 鼠标 hover 时颜色
+    .el-menu-hover-bg-color {
+      background-color: var(--next-bg-menuBarActiveColor) !important;
+    }
+
+    // 修复点击左侧菜单折叠再展开时，宽度不跟随问题
+    .el-menu--collapse {
+      width: 64px !important;
+    }
+
+    // 第三方图标字体间距/大小设置
+    .el-menu-item .iconfont,
+    .el-sub-menu .iconfont,
+    .el-menu-item .fa,
+    .el-sub-menu .fa {
+      @include generalIcon;
+    }
+
+    // 水平菜单、横向菜单高亮 背景色，鼠标 hover 时，有子级菜单的背景色
+    .el-menu-item.is-active,
+    .el-sub-menu.is-active .el-sub-menu__title,
+    .el-sub-menu:not(.is-opened):hover .el-sub-menu__title {
+      @extend .el-menu-hover-bg-color;
+    }
+
+    .el-menu-item:hover {
+      @extend .el-menu-hover-bg-color;
+    }
+
+    .el-sub-menu.is-active.is-opened .el-sub-menu__title {
+      background-color: unset !important;
+    }
+  }
+
+  // 水平菜单
+  .el-popper {
+    position: relative;
+
+    // 横向菜单折叠 a 标签
+    &.is-dark a {
+      color: var(--el-color-white) !important;
+      text-decoration: none;
+    }
+
+    // 水平菜单、横向菜单折叠背景色
+    &.is-pure.is-light {
+
+      // 水平菜单
+      .el-menu--vertical {
+        background: var(--next-bg-menuBar);
+
+        .el-sub-menu.is-active .el-sub-menu__title {
+          color: var(--el-menu-active-color);
+        }
+
+        .el-popper.is-pure.is-light {
+          .el-menu--vertical {
+            .el-sub-menu .el-sub-menu__title {
+              background-color: unset !important;
+              color: var(--next-bg-menuBarColor);
+            }
+
+            .el-sub-menu.is-active .el-sub-menu__title {
+              color: var(--el-menu-active-color);
+            }
+          }
+        }
+      }
+
+      // 横向菜单
+      .el-menu--horizontal {
+        background: var(--next-bg-topBar);
+
+        .el-menu-item,
+        .el-sub-menu {
+          height: 50px !important;
+          line-height: 50px !important;
+          color: var(--next-bg-topBarColor);
+
+          .el-sub-menu__title {
+            height: 50px !important;
+            line-height: 50px !important;
+            color: var(--next-bg-topBarColor);
+          }
+
+          .el-popper.is-pure.is-light {
+            .el-menu--horizontal {
+              .el-sub-menu .el-sub-menu__title {
+                background-color: unset !important;
+                color: var(--next-bg-topBarColor);
+              }
+
+              .el-sub-menu.is-active .el-sub-menu__title {
+                color: var(--el-menu-active-color);
+              }
+            }
+          }
+        }
+
+        .el-menu-item.is-active,
+        .el-sub-menu.is-active .el-sub-menu__title {
+          color: var(--el-menu-active-color);
+        }
+      }
+    }
+  }
+
+  // Tabs 标签页
+  .el-tabs {
+    position: relative;
+
+    // 表单切换
+    &.form-tabs {
+      .el-tabs__header {
+        .el-tabs__item {
+          height: 50px;
+          line-height: 50px;
+          font-size: 16px;
+        }
+      }
+
+      .el-tabs__content {
+        padding: 15px 0;
+
+        .form-tabs-cont--item {
+          display: flex;
+          flex-direction: column;
+
+          .el-input,
+          .el-textarea {
+            width: 450px;
+
+            &.el-input--medium .el-input__inner {
+              height: 40px;
+              line-height: 40px;
+            }
+          }
+        }
+      }
+    }
+
+    .el-tabs__nav-wrap::after {
+      height: 1px !important;
+    }
+  }
+}
+
+// 预览图
+.el-image {
+  &.process-image {
+    &>[class^="el-image"] {
+      display: none;
+    }
+
+    &>.el-image-viewer__wrapper {
+      display: block;
+    }
+
+    .el-image-viewer__mask {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--next-color-white);
+      opacity: 1;
+    }
+
+    .el-image-viewer__canvas {
+      width: 90%;
+      height: 90%;
+    }
+  }
+
+  &-viewer__wrapper {
+    .el-image-viewer__mask {
+      opacity: 0.8;
+    }
+
+    .el-image-viewer__close {
+      color: var(--next-color-white);
+    }
+
+    // 手动加入文件名称
+    .preview-file-name {
+      position: absolute;
+      top: -40px;
+      padding: 8px 20px;
+      border-radius: 5px;
+      background: var(--next-color-white);
+      font-size: 14px;
+    }
+
+    .el-image-viewer__btn {
+      &.is-disabled {
+        opacity: .3;
+        cursor: not-allowed;
+
+        .el-icon {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .image-slot {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--color-text-sub);
+    padding-top: 3px;
+
+    i {
+      font-size: 28px;
+    }
+
+    span {
+      margin-top: 5px;
+    }
+  }
+}
+
+// loading
+.el-loading-mask.custom-loading-mask {
+  .el-loading-spinner {
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, .75);
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    &::before {
+      display: block;
+      background: url("../assets/icon/loading.gif") no-repeat center;
+      background-size: 100% 100%;
+      width: 40px;
+      height: 40px;
+      content: "";
+    }
+
+    .circular {
+      display: none !important;
+    }
+
+    .el-loading-text {
+      color: var(--color-text-main);
+      margin-top: 12px;
+      margin-bottom: 0;
+      width: 100%;
+      word-break: break-all;
+      line-height: 1.3;
+    }
+  }
+}
+
+// Alert 警告
+.el-alert {
+  border: 1px solid;
+
+  &____title {
+    word-break: break-all;
+  }
+}
+
+// Message 消息提示
+.el-message {
+  min-width: unset !important;
+  padding: 15px !important;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.02);
+}
+
+// Dialog 对话框
+.el-overlay {
+  overflow: hidden;
+
+  .el-overlay-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: unset !important;
+    width: 100%;
+    height: 100%;
+
+    .el-dialog {
+      margin: 0 auto !important;
+      position: absolute;
+
+      .el-dialog__body {
+        padding: 20px !important;
+      }
+    }
+  }
+}
+
+.el-dialog__body {
+  max-height: calc(90vh - 111px) !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+// 滚动条
+.el-scrollbar {
+  .el-scrollbar__bar {
+    z-index: 4;
+  }
+
+  /*防止页面切换时，滚动条高度不变的问题（滚动条高度非滚动条滚动高度）*/
+  .el-scrollbar__wrap {
+    max-height: 100%;
+  }
+}
+
+.el-select-dropdown .el-scrollbar__wrap {
+  overflow-x: scroll !important;
+}
+
+/*修复Select 选择器高度问题*/
+.el-select-dropdown__wrap {
+  max-height: 274px !important;
+}
+
+/*用于界面高度自适应（main.vue），区分 scrollbar__view，防止其它使用 scrollbar 的地方出现滚动条消失*/
+.layout-container-view .el-scrollbar__view {
+  height: 100%;
+}
+
+/*防止分栏布局二级菜单很多时，滚动条消失问题*/
+.layout-columns-warp .layout-aside .el-scrollbar__view {
+  height: unset !important;
+}
