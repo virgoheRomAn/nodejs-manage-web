@@ -5,6 +5,12 @@ const UUID = require('uuid');
 const PermissionInfraClient = require('../client/java-permission-infra');
 const DataresourceClient = require('../client/java-dataresource-resource');
 
+const areaData = require('../mock/area');
+const dictData = require('../mock/area');
+const userData = require('../mock/user');
+const roleData = require('../mock/role');
+const permissionData = require('../mock/permission');
+
 /**
  * @description 登录服务 不做拦截
  * @author virgoheRomAn
@@ -17,7 +23,8 @@ class LoginService extends Service {
 	 */
 	async createGeetestCaptcha(params) {
 		const { ctx } = this;
-		return await DataresourceClient.createGeetestCaptcha(ctx, params);
+		return ctx.success({ gt: '1', challenge: '1', offline: '1' });
+		// return await DataresourceClient.createGeetestCaptcha(ctx, params);
 	}
 
 	/**
@@ -34,8 +41,9 @@ class LoginService extends Service {
 		const { ctx, service } = this;
 
 		// 鉴权
-		const loginRs = await PermissionInfraClient.login(ctx, params);
-		const { id: userId, name: userName, orgId, needReset } = loginRs.data;
+		// const loginRs = await PermissionInfraClient.login(ctx, params);
+		// const { id: userId, name: userName, orgId, needReset } = loginRs.data;
+		const { id: userId, name: userName, orgId, needReset } = userData;
 
 		// 需要重置密码
 		if (needReset === 1) {
@@ -44,25 +52,36 @@ class LoginService extends Service {
 		}
 
 		// 查询角色
-		const roleRs = await PermissionInfraClient.queryUserRole(ctx, { userId });
+		// const roleRs = await PermissionInfraClient.queryUserRole(ctx, { userId });
 
 		// 获取权限
-		const permissionRs = await PermissionInfraClient.getPermission(ctx, { userId, systemId: 'boss' });
+		// const permissionRs = await PermissionInfraClient.getPermission(ctx, { userId, systemId: 'boss' });
 
 		// 获取基础数据
-		const database = await service.commonService.queryDatabaseInfo({});
-		const { area, dict } = database.data;
+		// const database = await service.commonService.queryDatabaseInfo({});
+		// const { area, dict } = database.data;
+
+		// ctx.session = {};
+		// ctx.session.operatorId = userId;
+		// ctx.session.operatorName = userName;
+		// ctx.session.orgId = orgId;
+		// ctx.session.token = token;
+		// ctx.session.role = roleRs.data;
+		// ctx.session.permission = permissionRs.data;
+		// ctx.session.operatorInfo = loginRs.data;
+
+		// return ctx.success({ token, ...loginRs.data, permission: permissionRs.data, role: roleRs.data, area, dict });
 
 		ctx.session = {};
 		ctx.session.operatorId = userId;
 		ctx.session.operatorName = userName;
 		ctx.session.orgId = orgId;
 		ctx.session.token = token;
-		ctx.session.role = roleRs.data;
-		ctx.session.permission = permissionRs.data;
-		ctx.session.operatorInfo = loginRs.data;
+		ctx.session.role = roleData;
+		ctx.session.permission = permissionData;
+		ctx.session.operatorInfo = userData;
 
-		return ctx.success({ token, ...loginRs.data, permission: permissionRs.data, role: roleRs.data, area, dict });
+		return ctx.success({ token, ...userData, permission: permissionData, role: roleData, area: areaData, dict: dictData });
 	}
 
 	/**

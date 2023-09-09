@@ -3879,6 +3879,13 @@ egg-session@^3.1.0:
   dependencies:
     koa-session "^6.0.0"
 
+egg-session@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/egg-session/-/egg-session-3.3.0.tgz#401b52da2515623ea7e41cfc6a857db5f5138aac"
+  integrity sha512-RCPWHLWi0Ak+xI/zXN71Wpva/wsqevmKDvkOGk2uu5UdwRHw5lKuTtYm161NMDGZi6lvcnzR2lN7xRcDuhGiIw==
+  dependencies:
+    koa-session "^6.0.0"
+
 egg-static@^2.2.0:
   version "2.3.1"
   resolved "http://nexus.jr-zbj.com/repository/npm-public/egg-static/-/egg-static-2.3.1.tgz"

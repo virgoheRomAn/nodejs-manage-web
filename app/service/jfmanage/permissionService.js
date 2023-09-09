@@ -3,6 +3,8 @@
 const Service = require('egg').Service;
 const PermissionInfraClient = require('../../client/java-permission-infra');
 
+const permissionData = require('../../mock/permission');
+
 /**
  * @description 综合管理 - 权限服务
  * @author virgoheRomAn
@@ -18,8 +20,8 @@ class JRmanagePermissionService extends Service {
 		const { ctx } = this;
 		params.systemId = 'boss';
 
-		const rs = await PermissionInfraClient.queryPermission(ctx, params);
-		const permission = rs.data;
+		// const rs = await PermissionInfraClient.queryPermission(ctx, params);
+		const permission = permissionData;
 
 		// 处理成树形结构
 		const tree = await ctx.helper.createPermissionRouteTree(permission, '-1');

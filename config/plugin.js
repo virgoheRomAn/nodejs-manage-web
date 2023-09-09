@@ -12,7 +12,7 @@ module.exports = {
 		enable: !['development', 'local'].includes(process.env.EGG_SERVER_ENV),
 		package: '@gaoding/egg-apollo-client'
 	},
-
+	
 	// 启动 redis
 	redis: {
 		enable: true,
